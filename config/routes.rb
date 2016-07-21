@@ -1,11 +1,13 @@
 
 
 Rails.application.routes.draw do
+  resources :demos
   resources :tests
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
+  resources :users, only: [:show, :edit, :update]
 
-  resources :users, controller: "clearance/users", only: [:create] do
+  resources :users, controller: "users", only: [:create] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -20,11 +22,11 @@ Rails.application.routes.draw do
   resources :listings
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-root 'listings#index'
+  root 'listings#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+get "/auth/facebook/callback" => "sessions#create_from_omniauth"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
