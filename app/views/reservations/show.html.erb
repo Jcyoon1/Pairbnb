@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong> Arrival :</strong>
+  <%= @reservation.start_date %>
+</p>
+
+<p>
+  <strong> Departure:</strong>
+  <%= @reservation.end_date %>
+</p>
+
+
+<%= link_to 'Back', reservations_path %>

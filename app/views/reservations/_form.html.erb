@@ -1,0 +1,33 @@
+<%= form_for(@reservation) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this demo from being saved:</h2>
+
+      <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :listing_id, value: @listing.id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, value:current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :Arrival %><br>
+    <%= f.date_field :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Departure %><br>
+    <%= f.date_field :end_date %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

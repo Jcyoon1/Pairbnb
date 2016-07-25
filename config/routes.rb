@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :users, only: [:show, :edit, :update]
+  resources :listings
+  resources :reservations
 
   resources :users, controller: "users", only: [:create] do
-    resource :password,
+    resource :passwobard,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
   end
@@ -19,7 +21,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :listings
+
+  #resources :listings
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'listings#index'

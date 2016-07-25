@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @listing.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @listing.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @listing.country %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @listing.property %>
+</p>
+
+<p>
+  <strong>Bedroom:</strong>
+  <%= @listing.bedroom %>
+</p>
+
+<p>
+  <strong>Bathroom:</strong>
+  <%= @listing.bathroom %>
+</p>
+
+<p>
+  <strong>Max People:</strong>
+  <%= @listing.max_people %>
+</p>
+
+<p>
+  <strong>Facilities:</strong>
+  <%= @listing.facilities %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %> |
+<%= link_to 'Reservation', new_reservation_path(listing_id: @listing.id) %>

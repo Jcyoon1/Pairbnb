@@ -1,0 +1,61 @@
+<%= form_for(@listing) do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this demo from being saved:</h2>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, value:current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+    <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_area :city %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_area :country %>
+  </div>
+    <div class="field">
+    <%= f.label :property %><br>
+    <%= f.text_area :property %>
+  </div>
+  <div class="field">
+    <%= f.label :bedroom %><br>
+    <%= f.number_field :bedroom %>
+  </div>
+    <div class="field">
+    <%= f.label :bathroom %><br>
+    <%= f.number_field :bathroom %>
+  </div>
+  <div class="field">
+    <%= f.label :max_people %><br>
+    <%= f.number_field :max_people %>
+  </div>
+      <div class="field">
+    <%= f.label :facilities %><br>
+    <%= f.text_area :facilities %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
