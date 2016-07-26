@@ -1,5 +1,42 @@
 <p id="notice"><%= notice %></p>
 
+      <div class="carousel slide" id="screenshot-carousel" data-rise="carousel"><!-- Variable Carousel -->
+        <ol class="carousel-indicators">
+          <% @listing.avatars.each_with_index do |picture, index| %>
+            <% if index == 0 %>
+              <li data-target="screenshot-carousel" data-slide-to="#{index}" class="active"></li>            
+            <% else %>
+              <li data-target="screenshot-carousel" data-slide-to="#{index}"></li>
+            <% end %>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+          <% @listing.avatars.each_with_index do |picture, index| %>
+            <% if index == 0 %>
+              <div class="item active">
+                <%= image_tag picture.medium.url %>
+              </div>
+            <% else %>
+              <div class="item">
+                <%= image_tag picture.medium.url %>
+              </div>
+            <% end %>            
+          <% end %>
+        </div>
+        <a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div><!-- End Variable Carousel -->
+
+
+
+
+
+
+
 <p>
   <strong>Name:</strong>
   <%= @listing.name %>
@@ -49,6 +86,9 @@
   <strong>Price:</strong>
   <%= @listing.price %>
 </p>
+
+
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %> |
 <%= link_to 'Reservation', new_reservation_path(listing_id: @listing.id) %>

@@ -43,6 +43,7 @@ class ListingsController < ApplicationController
 	# DELETE /listings/1
 	def destroy
 		@listing.destroy
+		redirect_to listing_index_path
 	end
 
 	private
@@ -52,7 +53,7 @@ class ListingsController < ApplicationController
 		end
 
 		def listing_params
-			params.require(:listing).permit(:user_id, :name, :address, :city, :country, :property, :bedroom, :bathroom, :max_people, :facilities, :price)
+			params.require(:listing).permit(:user_id, :name, :address, :city, :country, :property, :bedroom, :bathroom, :max_people, :facilities, :price, {avatars: []})
 		end
 
 
