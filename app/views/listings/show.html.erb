@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-      <div class="carousel slide" id="screenshot-carousel" data-rise="carousel"><!-- Variable Carousel -->
+      <div class="carousel slide" id="screenshot-carousel" data-rise="carousel" >
+      <!-- style="width:500px;margin:auto;" -->
+      <!-- Variable Carousel -->
         <ol class="carousel-indicators">
           <% @listing.avatars.each_with_index do |picture, index| %>
             <% if index == 0 %>
@@ -14,11 +16,11 @@
           <% @listing.avatars.each_with_index do |picture, index| %>
             <% if index == 0 %>
               <div class="item active">
-                <%= image_tag picture.medium.url %>
+                <%= image_tag picture.url%>
               </div>
             <% else %>
               <div class="item">
-                <%= image_tag picture.medium.url %>
+                <%= image_tag picture.url%>
               </div>
             <% end %>            
           <% end %>
