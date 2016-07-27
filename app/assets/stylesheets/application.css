@@ -16,3 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-select";
+
+.style_image{
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:400px;
+}

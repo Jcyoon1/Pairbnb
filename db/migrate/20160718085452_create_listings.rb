@@ -2,6 +2,7 @@ class CreateListings < ActiveRecord::Migration
   def change
     create_table :listings do |t|
       t.integer :user_id
+      t.string :email
       t.string :name
       t.string :address
       t.string :city
