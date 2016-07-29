@@ -27,7 +27,8 @@ class ReservationsController < ApplicationController
 		if (@reservation.reserved_dates & @listing.blocked_dates).empty? && @reservation.save
 			flash[:notice]= "successful"
 			# Tell the ReservationMailer to send a booking email after save
-			ReservationMailer.booking_email(@reservation.user, @listing.user, @reservation.id).deliver_now
+			ReservationMailer.booking_email(@listing, @reservation).deliver_now
+			ReservationMailer.notification_email(@reservation, @listing).deliver_now
 			redirect_to @listing
 		else
 			flash[:notice]= "unsuccessful"

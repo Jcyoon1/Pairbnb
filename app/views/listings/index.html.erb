@@ -20,7 +20,7 @@
   </thead>
 
   <tbody>
-    <% @listings.each do |listing| %>
+    <% @post.each do |listing| %>
       <tr>
         <td><%= listing.name %></td>
         <td><%= listing.address %></td>
@@ -43,3 +43,4 @@
 <br>
 
 <%= link_to 'New Listing', new_listing_path %>
+<%= will_paginate @post %>
