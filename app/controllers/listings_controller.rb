@@ -3,7 +3,9 @@ class ListingsController < ApplicationController
 
 	# GET /listings
 	def index
-		@listings = Listing.all
+		# @listings = Listing.all
+
+		@post = Listing.order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
 	end
 
 	# GET /listings/1

@@ -1,7 +1,5 @@
-
-Congratulations <%= @listing.user.name %>! You have received a booking from <%= @reservation.user.name %>
+Thank you <%= @reservation.user.name %>! booking has been sent to <%= @listing.user.name %>
 
 You can see details of your new reservation here: <%= link_to 'Click me', reservation_url(@reservation.id) %>
-
 Arrival   : <%= @reservation.start_date %> 
 Departure : <%= @reservation.end_date %>
