@@ -5,15 +5,14 @@ class ReservationMailer < ApplicationMailer
 		@reservation = reservation
 		@listing = listing
 
-
-		mail(to: @listing.user.email, subject: 'PairBnb Booking Confirmation @listing.name') #subject invalid
+		mail(to: @listing.user.email, subject: "PairBnb Booking Confirmation #{@listing.name}") 
 	end
 
 	def notification_email(reservation, listing)
 		@reservation = reservation
 		@listing = listing
 
-		mail(to: @reservation.user.email, subject: 'PairBnb Confirmation: "Listing.find(#{id})name"') #subject invalid
+		mail(to: @reservation.user.email, subject: "PairBnb Confirmation: #{@listing.name}") 
 	end
 
 end
