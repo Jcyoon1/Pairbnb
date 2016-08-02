@@ -1,14 +1,70 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong> Arrival :</strong>
+  <strong> Arrival: </strong>
   <%= @reservation.start_date %>
 </p>
 
 <p>
-  <strong> Departure:</strong>
+  <strong> Departure: </strong>
   <%= @reservation.end_date %>
 </p>
 
+<p>
+	<strong> Listing: </strong>
+	<%= @reservation.listing_id %>
+</p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @listing.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @listing.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @listing.country %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @listing.property %>
+</p>
+
+<p>
+  <strong>Bedroom:</strong>
+  <%= @listing.bedroom %>
+</p>
+
+<p>
+  <strong>Bathroom:</strong>
+  <%= @listing.bathroom %>
+</p>
+
+<p>
+  <strong>Max People:</strong>
+  <%= @listing.max_people %>
+</p>
+
+<p>
+  <strong>Facilities:</strong>
+  <%= @listing.facilities %>
+</p>
+
+<p>
+  <strong> Total Price:</strong>
+  <%= "#{@reservation.total_price}.00".to_i %>
+</p>
+
+
+<%= link_to 'Pay NowX', new_reservation_payment_path(@reservation) %>
 <%= link_to 'Back', reservations_path %>
