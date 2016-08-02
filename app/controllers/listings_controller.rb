@@ -27,7 +27,7 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: 'Demo was successfully created.' }
+        format.html { redirect_to @listing, notice: 'Reservation was successfully created.' }
         #format.json { render :show, status: :created, location: @demo }
       else
         format.html { render :new }

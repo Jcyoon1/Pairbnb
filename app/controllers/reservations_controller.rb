@@ -8,6 +8,8 @@ class ReservationsController < ApplicationController
 
 	# GET /reservations/1
 	def show
+		@client_token = Braintree::ClientToken.generate
+		@listing = @reservation.listing
 	end
 
 	# GET /reservations/new
@@ -30,9 +32,13 @@ class ReservationsController < ApplicationController
 			ReservationMailer.delay.booking_email(@listing, @reservation)
 			ReservationMailer.delay.notification_email(@reservation, @listing)
 			#ReservationJob.perform_later(@listing, @reservation)
-			redirect_to @listing
+			#format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        	#format.json { render :show, status: :created, location: @reservation }
+        	redirect_to @reservation
 		else
 			flash[:notice]= "unsuccessful"
+			#format.html { render :new }
+        	#format.json { render json: @reservation.errors, status: :unprocessable_entity }
 			redirect_to @listing
 		end
 

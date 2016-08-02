@@ -1,13 +1,18 @@
 
 
 Rails.application.routes.draw do
+  get 'payments/new'
+
   resources :demos
   resources :tests
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :users, only: [:show, :edit, :update]
   resources :listings
-  resources :reservations
+  resources :payments, only: [:new, :create]
+  resources :reservations do
+    resources :payments, only: [:new, :create]
+  end
 
   resources :users, controller: "users", only: [:create] do
     resource :passwobard,
